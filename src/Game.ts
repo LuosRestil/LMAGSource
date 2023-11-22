@@ -27,7 +27,6 @@ export class Game {
     const dts = dt / 1000;
     this.lastTime = ms;
 
-    this.removeInactive(this.projectiles);
     this.projectiles = this.projectiles.filter(projectile => projectile.isActive);
     this.update(dts);
     this.draw();
@@ -60,9 +59,5 @@ export class Game {
       enemies.push(new Enemy(this.ctx));
     }
     return enemies;
-  }
-
-  private removeInactive(items: {isActive: boolean}[]) {
-    items = items.filter(item => item.isActive);
   }
 }
